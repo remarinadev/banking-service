@@ -37,7 +37,7 @@ public class AccountController {
                 .orElseThrow(() -> new RuntimeException("Cuenta no encontrada"));
     }
 
-    @PostMapping
+    @PostMapping(consumes = "application/json", produces = "application/json")
     public Account createAccount(@RequestBody Account account) {
         return accountService.saveAccount(account);
     }

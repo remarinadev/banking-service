@@ -2,7 +2,15 @@ package com.example.banking.model;
 
 import java.util.List;
 
+
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -15,6 +23,15 @@ import jakarta.persistence.OneToMany;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@JsonTypeInfo(
+	    use = JsonTypeInfo.Id.NAME,
+	    include = JsonTypeInfo.As.PROPERTY,
+	    property = "type"
+	)
+	@JsonSubTypes({
+	    @JsonSubTypes.Type(value = PersonalClient.class, name = "P"),
+	    @JsonSubTypes.Type(value = CompanyClient.class, name = "C")
+	})
 public abstract class Client {
 
     @Id
@@ -24,8 +41,8 @@ public abstract class Client {
     private String name;
     private String direccion;
     private String telefono;
-
-    @OneToMany(mappedBy = "client")
+    @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
     private List<Account> accounts;
 
     public Client() {}

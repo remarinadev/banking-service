@@ -1,5 +1,8 @@
 package com.example.banking.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,8 +25,9 @@ public class Account {
     private Currency currency;
     private Double balance;
     private String nroCuenta;
-
-    @ManyToOne(cascade = CascadeType.MERGE)
+    
+    @JsonBackReference
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "client_id")
     private Client client;
 

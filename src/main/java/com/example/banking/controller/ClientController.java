@@ -49,7 +49,7 @@ public class ClientController {
      * @return El cliente creado.
      */
     @PostMapping
-    public CompanyClient createClient(@RequestBody CompanyClient client) {
+    public Client createClient(@RequestBody Client client) {
         return clientservice.save(client);
      
     }
