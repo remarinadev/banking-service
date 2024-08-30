@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "e9e2a042-3b46-475b-b6a6-34591cde4a82",
+		"name": "Banking API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10013527"
+	},
+	"item": [
+		{
+			"name": "0btener Todoas Cuentas",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "0btener Todos Clientes",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerCuentasPorId",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerCLientePorId",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "crear cuenta",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Charset",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nroCuenta\": \"123456789\",\r\n    \"currency\": \"DOLLARS\",\r\n    \"balance\": 1000.00,\r\n    \"client\": {\r\n        \"type\": \"PersonalClient\",\r\n        \"name\": \"José\",\r\n        \"apellido\": \"Pérez\",\r\n        \"direccion\": \"Mitre 4543\",\r\n        \"nroDocumento\": \"67876545\",\r\n        \"telefono\": \"111411\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un Cliente Persona",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Jose\",\r\n    \"apellido\": \"Perez\",\r\n    \"direccion\": \"Mitre 4543\",\r\n    \"nroDocumento\": \"67876545\",\r\n    \"telefono\":\"765765765\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/clients/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clients",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un Cliente Empresa",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteCuenta",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
