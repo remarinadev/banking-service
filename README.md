@@ -1,6 +1,3 @@
-
-Aquí tienes un ejemplo de un archivo README.md que puedes agregar a tu repositorio en GitHub para describir el proyecto:
-
 Banking Service
 Este proyecto es un servicio bancario construido con Spring Boot. Proporciona una API REST para gestionar clientes y cuentas bancarias.
 
